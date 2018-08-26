@@ -1,0 +1,9 @@
+Requirement: HomeBrew & Docker & Virtual Box & KuberCLI & MiniKube
+
+Step 1:(kubernetes-cli)
+brew install kubeCli
+kubectl version
+
+Step 2:(MiniKube)
+brew cask install minikube
+minikube version
