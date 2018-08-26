@@ -1,0 +1,16 @@
+start minikube:
+minikube start
+
+create a deployment:
+kubectl run hello-minikube --image=gcr.io/google_containers/echoserver:1.4 --port=8080
+
+expose service:
+kubectl expose deployment hello-minikube --type=NodePort
+kubectl get pod
+
+hit the endpoint:
+curl $(minikube service hello-minikube --url)
+
+delete deployment and stop minikube:
+kubectl delete deployment hello-minikube
+minikube stop
