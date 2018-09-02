@@ -1,0 +1,18 @@
+Start minikube:
+minikube start
+
+apply deployment yml file:
+kubectl apply -f ./deployment.yaml
+
+expose port:
+kubectl expose deployment tomcat-deployment --type=NodePort
+
+check endpoint:
+minikube service tomcat-deployment --url
+
+hit endpoint:
+curl $(minikube service tomcat-deployment --url)
+
+delete deployment and stop minikube:
+kubectl delete deployment tomcat-deployment
+minikube stop

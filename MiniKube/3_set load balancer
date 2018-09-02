@@ -1,0 +1,18 @@
+Start minikube:
+minikube start
+
+apply deployment yml file:
+kubectl apply -f ./deployment.yaml
+
+set replica:
+kubectl scale --replicas=4 deployment/tomcat-deployment
+
+set load-balancer:
+kubectl expose deployment tomcat-deployment --type=LoadBalancer --port=8080 --target-port=8080 --name=tomcat-load-balancer
+
+see details info:
+kubectl describe services tomcat-load-balancer
+
+delete deployment and stop minikube:
+kubectl delete deployment tomcat-deployment
+minikube stop
